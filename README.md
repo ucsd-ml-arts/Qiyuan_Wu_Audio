@@ -11,32 +11,29 @@ In this example, Chopin Concerto No1 E Minor Op11 and River Flows In You are use
 
 ## Model/Data
 
-- trained models
+-
 I used Markov chain model, which is a stochastic model describing a sequence of possible events in which the probability of each event depends only on the state attained in the previous event. Essentially, Markov chains are mathematical systems that track the probabilities of state transitions. It's usually used to model complex systems and predict behavior. They’re used in many commercial applications, from text autocomplete to Google’s PageRank algorithm. 
 
-- training data (or link to training data)
+- 
 Because of the concise and accurate property of their structure, I chose to use MIDI files for this project. MIDI files are simple files that consist of chunks which contain information about the music encoded in the file. A significant distinction to note is that MIDI files are not playable audio files like MP3 files. Rather, they contain instructions on how to play tunes, which can be played by numerous different computer generated instruments. Due to this property, they are limited in that they can only store a certain range of notes and cannot store complex audio like vocal lyrics.
 Conventionally, MIDI files starts with one header chunk containing information about the “instruments” playing the sounds, followed by track chunks containing the notes played and their durations, velocities (volume), etc.
 
 ## Code
-
-Your code for generating your project:
-- Python: generative_code.py
-- Jupyter notebooks: generative_code.ipynb
+I have uploaded 4 code files: 
+Generator.py
+json_handler.py
+markov_chain.py
+parser.py
 
 ## Results
 
-In the repository
+Both the original and the generated audios are in the repository. I uploaded both the mp3 and midi version of the generated music.
 
 ## Technical Notes
 
-Any implementation details or notes we need to repeat your work. 
-- Does this code require other pip packages, software, etc?
-- Does it run on some other (non-datahub) platform? (CoLab, etc.)
+My project requires fluidsynth framework installed in order to route MIDI in your computer. In order to use this pyfluidsynth library, you may install fluidsynth's version 1.1.x. Other common libraries such as NumPy is required as well.
 
 ## Reference
 
-References to any papers, techniques, repositories you used:
-- Papers
-- Repositories
-- Blog posts
+http://www.music-software-development.com/midi-tutorial.html
+https://en.wikipedia.org/wiki/Markov_chain
