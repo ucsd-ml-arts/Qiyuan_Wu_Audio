@@ -5,7 +5,7 @@ Qiyuan Wu, qiw103@eng.ucsd.edu
 
 ## Abstract
 
-I used a set of instructions to build a markov chain in python and play it using FluidSynth Midi synthetiser. The instructions are generated from a MIDI file (.mid) and converted into json format using ToneJS Midi. Then, they are fed into a simple markov chain that generates midi phrases out of the ones from the original track, and playes them using pyfluidsynth.
+I used a set of instructions to build a Markov chain in Python to train it to generate music based on the state correlation (each note is treated as a state). The instructions are generated from a MIDI file (.mid) and converted into json format using ToneJS Midi. Then, they are fed into a simple markov chain that generates midi phrases out of the ones from the original track, and playes them using pyfluidsynth.
 
 In this example, Chopin Concerto No1 E Minor Op11 and River Flows In You are used to generate the instructions in the markov chain. Both the original and generated track's Midi File from the MIDM database.
 ![river](https://miro.medium.com/max/750/0*xyeeNUWzLO___J8P.jpg)
