@@ -32,7 +32,7 @@ This is all the code required to read the information in the audio.
 Track zero includes much metadata about the midi, including its time stamp, tempo, etc. This part is not too important to this project.
 Track one is where the data for how to play the song is stored. “note_on” messages contain information on the pitch, volume, and time that a note is played, which is the cruicial information need. (P.S.: the ‘time’ value represents delay after last message. So if time is 0, it means this note is played at the same time as last note). For every single note, I rounded its duration to the nearest 250 milliseconds and grouped it with every note that was played at the same time that it was.
 Then I used a script I wrote (parser.py) to isolate all the “note_on” messages in the tracks and group them into a graph of progressions
-![graph](https://miro.medium.com/max/820/1*_1_LSDlgkCQIN3DIlrPddw.png)
+![graph](https://miro.medium.com/max/820/1*_1_LSDlgkCQIN3DIlrPddw.png)\
 This is the adjancent matrix I acquired from the graph I generated. We can represent it this way because we only care about the edges between the nodes and the frequency a particular note transitions to another note. For clarity, we will only care about the duration of the note being transitioned to and the number of times that note was transitioned to.
        C (500 ms) | D (250 ms) | F# (250 ms) | A (750 ms)
 C       0            2            1             1
@@ -41,8 +41,11 @@ F#      1            0            0             1
 A       1            1            0             1
 
 Inside the Python, I represented it using dictionary, which is the HashMap implementation in Python. I stored these notes based on the conversion in the official document of MIDI.
-![graph](https://miro.medium.com/max/645/1*GUQ8Q3yil6EjSrsbd-whcw.png)
-Since River Flows in You is written in A major, it is reasonable that there are a lot of transitions from note 81 (A6). It transitions to note 80, duration 500ms (G# in 6th octave) a total of 28 times.
+![graph](https://miro.medium.com/max/645/1*GUQ8Q3yil6EjSrsbd-whcw.png)\
+This is a fraction of the River Flows in You's breakdown:
+![graph](https://miro.medium.com/max/1525/1*M_U2kn9-o689fUV7bFgRww.png)\
+Since River Flows in You is written in A major, it is reasonable that there are a lot of transitions from note 81 (A6). It transitions to note 80, duration 500ms (G# in 6th octave) a total of 28 times.\
+
 Now finally, we can generate music! I’m going to give initial push with a random note, search it in the matrix, and choose a random note that it transitions to (based on the post probability), weighted toward the more frequent transitions. 
 
 ## Code
