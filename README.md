@@ -24,7 +24,7 @@ mid = MidiFile('song.mid')\
 for i, track in enumerate(mid.tracks):\
     print('Track {}: {}'.format(i, track.name))\
     for message in track:\
-        print(message)\
+        print(message)
         
 This is all the code required to read the information in the audio.  
 ![log](https://miro.medium.com/max/930/1*kVhhR7OsXtovWG6bRkYPkA.png)
