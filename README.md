@@ -19,12 +19,12 @@ Conventionally, MIDI files starts with one header chunk containing information a
 
 The first thing I experimented was trying to find a Python library to dissect MIDI files. I chose mido after conducting some research. When I first attempted to do this using MIDO, there were syntax and logic errors in their example code, but it seems they’ve fixed that now last week. The library is quite easy to use.
 
-from mido import MidiFile
-mid = MidiFile('song.mid')
-for i, track in enumerate(mid.tracks):
-    print('Track {}: {}'.format(i, track.name))
-    for message in track:
-        print(message)
+from mido import MidiFile\
+mid = MidiFile('song.mid')\
+for i, track in enumerate(mid.tracks):\
+    print('Track {}: {}'.format(i, track.name))\
+    for message in track:\
+        print(message)\
         
 This is all the code required to read the information in the audio.  
 ![log](https://miro.medium.com/max/930/1*kVhhR7OsXtovWG6bRkYPkA.png)
