@@ -1,4 +1,4 @@
-# Project 3 Generative Audio
+# Project 3 Generative Music using Markov Chain
 
 Qiyuan Wu, qiw103@eng.ucsd.edu
 
